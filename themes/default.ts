@@ -11,5 +11,6 @@ export default {
     light: "#f8f9fa",
     dark: "#343a40",
     link: "#007bff",
+    neutral: "#839198",
   },
 };
