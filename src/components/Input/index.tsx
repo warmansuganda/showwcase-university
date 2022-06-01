@@ -18,7 +18,6 @@ interface InputProps {
   size?: SizeVariant;
   variant?: ColorVariant;
   bold?: boolean;
-  block?: boolean;
   controlled?: boolean;
   value?: string | number | undefined;
   defaultValue?: string | number | undefined;
@@ -46,7 +45,6 @@ const Input = forwardRef<TextElement, InputProps>(
       size = "md",
       variant = "neutral",
       bold = false,
-      block = false,
       controlled = false,
       value = "",
       defaultValue = "",
@@ -61,7 +59,7 @@ const Input = forwardRef<TextElement, InputProps>(
     ref: Ref<TextElement>
   ) => {
     return (
-      <InputWrapper block={block} variant={variant} size={size} bold={bold}>
+      <InputWrapper variant={variant} size={size} bold={bold}>
         {leftAccessory}
         {type === "textarea" ? (
           <TextareaStyle
