@@ -45,7 +45,7 @@
         "custom": "ignore",
         "explicitSpread": "ignore",
         "exceptions": [
-          "app"
+          "src"
         ]
       }
     ],
@@ -65,8 +65,8 @@
       "typescript": {},
       "alias": [
         [
-          "app",
-          "./app"
+          "src",
+          "./src"
         ]
       ]
     }
