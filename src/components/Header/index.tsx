@@ -8,9 +8,18 @@ function Header() {
   return (
     <Wrapper>
       <Container>
-        <Flex alignItems="center">
-          <Image src="/logo.svg" width={32} height={32} />
-          <BrandText>Showwcase University</BrandText>
+        <Flex justifyContent="space-between">
+          <Flex alignItems="center">
+            <Image src="/logo.svg" width={32} height={32} />
+            <BrandText>Showwcase University</BrandText>
+          </Flex>
+          <a
+            href="https://github.com/warmansuganda/showwcase-university"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image src="/images/github.svg" width={32} height={32} />
+          </a>
         </Flex>
       </Container>
     </Wrapper>
