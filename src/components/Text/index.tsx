@@ -46,11 +46,46 @@ interface HeadingProps {
 }
 
 const H1 = styled.h1<HeadingProps>`
-  font-size: 3rem;
-  line-height: 1;
+  font-size: 2.25rem;
+  line-height: 2.25rem;
+  color: ${(props) => props.variant};
+`;
+
+const H2 = styled.h2<HeadingProps>`
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  color: ${(props) => props.variant};
+`;
+
+const H3 = styled.h3<HeadingProps>`
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: ${(props) => props.variant};
+`;
+
+const H4 = styled.h4<HeadingProps>`
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: ${(props) => props.variant};
+`;
+
+const H5 = styled.h5<HeadingProps>`
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: ${(props) => props.variant};
+`;
+
+const H6 = styled.h6<HeadingProps>`
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: ${(props) => props.variant};
 `;
 
 export default Object.assign(Text, {
   H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
 });

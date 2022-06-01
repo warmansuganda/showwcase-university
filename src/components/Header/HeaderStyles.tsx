@@ -12,8 +12,8 @@ export const Wrapper = styled.header`
   border-bottom: 1px solid #f1f1f1;
 `;
 
-export const BrandingText = styled.div`
+export const BrandText = styled.div`
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #0070f3;
 `;

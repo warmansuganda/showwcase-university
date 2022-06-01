@@ -1,12 +1,18 @@
 import Image from "next/image";
+import Container from "src/components/Container";
+import Flex from "src/components/Flex";
 
-import { Wrapper, BrandingText } from "./HeaderStyles";
+import { Wrapper, BrandText } from "./HeaderStyles";
 
 function Header() {
   return (
     <Wrapper>
-      <Image src="/logo.svg" width={32} height={32} />
-      <BrandingText>Showwcase University</BrandingText>
+      <Container>
+        <Flex alignItems="center">
+          <Image src="/logo.svg" width={32} height={32} />
+          <BrandText>Showwcase University</BrandText>
+        </Flex>
+      </Container>
     </Wrapper>
   );
 }
