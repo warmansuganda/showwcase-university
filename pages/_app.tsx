@@ -6,6 +6,7 @@ import Header from "src/components/Header";
 
 import GlobalStyle from "../styles/global";
 import theme from "../themes/default";
+import "../locales/i18n";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
