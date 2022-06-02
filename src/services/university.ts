@@ -10,7 +10,7 @@ export interface University {
 
 export async function getUniversities(params: UniversityParams) {
   const response = await fetch(
-    `http://universities.hipolabs.com/search?${qs.stringify(params || {})}`
+    `/api/universities?${qs.stringify(params || {})}`
   );
 
   if (!response.ok) {
