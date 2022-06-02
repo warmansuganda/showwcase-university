@@ -20,8 +20,8 @@ function Navigation({ title, data }: NavigationProps) {
       {title && <NavTitle>{title}</NavTitle>}
       <Nav>
         {data.map((item, key) => (
-          <Link href={item.url}>
-            <NavItem key={key}>{item.label}</NavItem>
+          <Link key={key} href={item.url}>
+            <NavItem>{item.label}</NavItem>
           </Link>
         ))}
       </Nav>
