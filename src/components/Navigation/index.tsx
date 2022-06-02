@@ -1,19 +1,29 @@
+import Link from "next/link";
 import React from "react";
-import { useTranslation } from "react-i18next";
 
 import { Wrapper, Nav, NavTitle, NavItem } from "./NavigationStyles";
 
-function Navigation() {
-  const { t } = useTranslation();
+interface NavigationItem {
+  id: string;
+  label: string;
+  url: string;
+}
 
+interface NavigationProps {
+  title?: string;
+  data: NavigationItem[];
+}
+
+function Navigation({ title, data }: NavigationProps) {
   return (
     <Wrapper>
-      <NavTitle>{t("Showwcase")}</NavTitle>
+      {title && <NavTitle>{title}</NavTitle>}
       <Nav>
-        <NavItem className="active">
-          University 1 University 1 University 1
-        </NavItem>
-        <NavItem>University 2</NavItem>
+        {data.map((item, key) => (
+          <Link href={item.url}>
+            <NavItem key={key}>{item.label}</NavItem>
+          </Link>
+        ))}
       </Nav>
     </Wrapper>
   );

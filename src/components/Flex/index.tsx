@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { variant } from "styled-system";
 
-import { SizeVariant, FlexAlign } from "src/utils/types";
+import { SizeVariant, FlexAlign, DirectionType } from "src/utils/types";
 
 const gapVariant = variant({
   prop: "gap",
@@ -26,7 +26,7 @@ const gapVariant = variant({
 
 interface FlexProps {
   gap?: SizeVariant;
-  direction?: "row" | "column";
+  direction?: DirectionType;
   justifyContent?: FlexAlign;
   alignItems?: FlexAlign;
 }

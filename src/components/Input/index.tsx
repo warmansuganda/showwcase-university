@@ -59,7 +59,12 @@ const Input = forwardRef<TextElement, InputProps>(
     ref: Ref<TextElement>
   ) => {
     return (
-      <InputWrapper variant={variant} size={size} bold={bold}>
+      <InputWrapper
+        variant={variant}
+        size={size}
+        bold={bold}
+        isTextarea={type === "textarea"}
+      >
         {leftAccessory}
         {type === "textarea" ? (
           <TextareaStyle

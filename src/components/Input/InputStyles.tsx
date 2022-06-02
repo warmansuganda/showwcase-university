@@ -81,6 +81,47 @@ const sizeVariant = variant({
   },
 });
 
+const sizeVariantTextarea = variant({
+  prop: "size",
+  variants: {
+    xs: {
+      padding: "4px",
+      "& input": {
+        fontSize: "0.75rem",
+        lineHeight: "1rem",
+      },
+    },
+    sm: {
+      padding: "6px",
+      "& input": {
+        fontSize: "0.875rem",
+        lineHeight: "1.25rem",
+      },
+    },
+    md: {
+      padding: "12px",
+      "& input": {
+        fontSize: "0.875rem",
+        lineHeight: "1.25rem",
+      },
+    },
+    lg: {
+      padding: "12px",
+      "& input": {
+        fontSize: "0.875rem",
+        lineHeight: "1.25rem",
+      },
+    },
+    xl: {
+      padding: "12px",
+      "& input": {
+        fontSize: "1rem",
+        lineHeight: "1.5rem",
+      },
+    },
+  },
+});
+
 export const InputStyle = styled.input`
   &:focus {
     outline: none;
@@ -90,6 +131,7 @@ export const InputStyle = styled.input`
   color: #455a64;
   background: #fff;
   flex: 1;
+  width: 100%;
 `;
 
 export const TextareaStyle = styled.textarea`
@@ -101,16 +143,19 @@ export const TextareaStyle = styled.textarea`
   font-family: Quicksand, sans-serif;
   color: #455a64;
   flex: 1;
+  width: 100%;
 `;
 
 interface InputWrapperProps {
   size?: SizeVariant;
   variant?: ColorVariant;
   bold?: boolean;
+  isTextarea?: boolean;
 }
 
 export const InputWrapper = styled.div<InputWrapperProps>`
-  ${sizeVariant}
+  ${(props) =>
+    !props.isTextarea ? sizeVariant(props) : sizeVariantTextarea(props)}
   ${colorVariant}
   
   display: flex;

@@ -38,7 +38,7 @@ const colorVariant = variant({
     light: {
       borderColor: "light",
       backgroundColor: "light",
-      color: "secondary",
+      color: "black",
     },
     dark: {
       borderColor: "dark",
