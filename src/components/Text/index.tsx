@@ -33,12 +33,14 @@ interface TextProps {
   variant?: ColorVariant | "link";
   size?: SizeVariant;
   weight?: 500 | 600 | 700 | "bold";
+  pointer?: boolean;
 }
 
 const Text = styled.text<TextProps>`
   ${sizeVariant}
   font-weight: ${(props) => props.weight || 500};
   color: ${(props) => props.theme.colors[props.variant || "black"]};
+  cursor: ${(props) => (props.pointer ? "pointer" : "auto")};
 `;
 
 interface HeadingProps {

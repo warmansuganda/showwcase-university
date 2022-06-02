@@ -32,6 +32,7 @@ interface FlexProps {
 }
 
 const Flex = styled.div<FlexProps>`
+  flex: 1;
   display: flex;
   ${gapVariant};
   direction: ${(props) => props.direction};
