@@ -12,3 +12,5 @@ export type ColorVariant =
 export type SizeVariant = "xs" | "sm" | "md" | "lg" | "xl";
 
 export type FlexAlign = "flex-start" | "center" | "flex-end" | "space-between";
+
+export type DirectionType = "row" | "column";

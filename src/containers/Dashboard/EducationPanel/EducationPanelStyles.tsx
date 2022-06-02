@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const ButtonAddWrapper = styled.div`
-  width: 200px;
-`;
-
 export const Panel = styled.div`
   flex: 1;
   display: grid;

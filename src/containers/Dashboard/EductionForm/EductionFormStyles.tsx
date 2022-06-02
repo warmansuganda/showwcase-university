@@ -1,0 +1,15 @@
+import styled from "styled-components";
+
+export const FormWrapper = styled.form`
+  width: 600px;
+`;
+
+export const InputWrapper = styled.form`
+  margin-bottom: 24px;
+`;
+
+export const FormAction = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 12px;
+`;
