@@ -4,7 +4,7 @@ export const FormWrapper = styled.form`
   width: 600px;
 `;
 
-export const InputWrapper = styled.form`
+export const InputWrapper = styled.div`
   margin-bottom: 24px;
 `;
 

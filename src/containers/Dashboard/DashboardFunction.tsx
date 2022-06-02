@@ -5,7 +5,7 @@ import dummy from "./dummy.json";
 function useDashboardFunction() {
   const [name, setName] = useState("");
   const formModal = useState(false);
-  const [data] = useState(dummy);
+  const [data] = useState([]);
 
   useEffect(() => {
     const cookies = getCookie("name")?.toString();
