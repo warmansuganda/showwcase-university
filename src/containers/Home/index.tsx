@@ -9,7 +9,6 @@ import PlainLayout from "src/layouts/PlainLayout";
 import Button from "src/components/Button";
 import Input from "src/components/Input";
 import Text from "src/components/Text";
-import Footer from "src/components/Footer";
 import ErrorMessage from "src/components/ErrorMessage";
 
 import {
@@ -81,7 +80,6 @@ function Home() {
           <Image src="/images/hero.svg" layout="fill" objectFit="contain" />
         </IlustrationWrapper>
       </HeroWrapper>
-      <Footer />
     </PlainLayout>
   );
 }

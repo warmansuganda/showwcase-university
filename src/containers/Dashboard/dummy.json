@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "school_name": "Harvard University",
+    "degree": "Master",
+    "major": "Information Technology",
+    "start": {
+      "month": 2,
+      "year": 2012
+    },
+    "end": {
+      "month": 5,
+      "year": 2013
+    },
+    "gpa": 3.4,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  {
+    "id": 2,
+    "school_name": "Indonesian Computer University Indonesian Computer University Indonesian Computer University",
+    "degree": "Bahcelor",
+    "major": "Information Technology",
+    "start": {
+      "month": 2,
+      "year": 2006
+    },
+    "end": {
+      "month": 2,
+      "year": 2011
+    },
+    "gpa": 3.4,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  }
+]
