@@ -8,6 +8,8 @@ import {
   ModalClose,
 } from "./ModalStyles";
 
+ReactModal.setAppElement("#modal-root");
+
 interface ModalProps {
   children: ReactNode | ReactNode[];
   modalIsOpen: boolean;
