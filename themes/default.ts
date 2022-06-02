@@ -1,6 +1,6 @@
 export default {
   colors: {
-    black: "#000e1a",
+    black: "#455a64",
     white: "#fff",
     primary: "#007bff",
     secondary: "#6c757d",
@@ -8,7 +8,7 @@ export default {
     danger: "#dc3545",
     warning: "#ffc107",
     info: "#17a2b8",
-    light: "#f8f9fa",
+    light: "#eaeaea",
     dark: "#343a40",
     link: "#007bff",
     neutral: "#839198",

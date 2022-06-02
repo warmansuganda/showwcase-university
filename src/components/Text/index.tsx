@@ -38,7 +38,7 @@ interface TextProps {
 const Text = styled.text<TextProps>`
   ${sizeVariant}
   font-weight: ${(props) => props.weight || 500};
-  color: ${(props) => props.theme.colors[props.variant || "neutral"]};
+  color: ${(props) => props.theme.colors[props.variant || "black"]};
 `;
 
 interface HeadingProps {

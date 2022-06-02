@@ -48,7 +48,7 @@ const colorVariant = variant({
     neutral: {
       borderColor: "neutral",
       backgroundColor: "neutral",
-      color: "secondary",
+      color: "#fff",
     },
   },
 });

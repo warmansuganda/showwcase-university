@@ -9,11 +9,18 @@ export const Wrapper = styled.header`
   position: fixed;
   top: 0;
   gap: 12px;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.light};
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
 `;
 
 export const BrandText = styled.div`
-  font-weight: bold;
-  font-size: 1.25rem;
+  font-weight: 700;
+  font-size: 1.2rem;
   color: #0070f3;
+`;
+
+export const BrandDivider = styled.svg`
+  color: ${({ theme }) => theme.colors.light};
 `;
