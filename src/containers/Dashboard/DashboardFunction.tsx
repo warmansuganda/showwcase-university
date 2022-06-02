@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
+import _ from "lodash";
 
 import { Education } from "src/services/education";
 // import dummy from "./dummy.json";
@@ -7,6 +8,7 @@ import { Education } from "src/services/education";
 function useDashboardFunction() {
   const [name, setName] = useState("");
   const [data, setData] = useState<Education[]>([]);
+  const [dataEdit, setDataEdit] = useState<Education>({} as Education);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -25,6 +27,11 @@ function useDashboardFunction() {
     localStorage.setItem("educations", JSON.stringify(rows));
   };
 
+  const handleCloseForm = () => {
+    setDataEdit({} as Education);
+    setShowForm(false);
+  };
+
   const handleCreate = (education: Education) => {
     const rows = [...data];
     rows.unshift(education);
@@ -32,9 +39,36 @@ function useDashboardFunction() {
     updateStorage(rows);
   };
 
-  const handleSaved = (education: Education) => {
-    setShowForm(false);
-    handleCreate(education);
+  const handleUpdate = (education: Education, editId: string) => {
+    const index = _.findIndex(data, (item) => item.id === editId);
+    const rows = _.update(data, `[${index}]`, () => education);
+    setData(rows);
+    updateStorage(rows);
+  };
+
+  const handleSaved = (education: Education, editId: string) => {
+    handleCloseForm();
+    if (editId) {
+      handleUpdate(education, editId);
+    } else {
+      handleCreate(education);
+    }
+  };
+
+  const handleDelete = (education: Education) => {
+    const rows = data.filter((item) => item.id !== education.id);
+    setData(rows);
+    updateStorage(rows);
+  };
+
+  const handleEdit = (education: Education) => {
+    setDataEdit(education);
+    setShowForm(true);
+  };
+
+  const handleAdd = () => {
+    setDataEdit({} as Education);
+    setShowForm(true);
   };
 
   return {
@@ -42,8 +76,13 @@ function useDashboardFunction() {
     name,
     formModal: { showForm, setShowForm },
     data,
+    dataEdit,
     handleCreate,
     handleSaved,
+    handleDelete,
+    handleAdd,
+    handleEdit,
+    handleCloseForm,
   };
 }
 

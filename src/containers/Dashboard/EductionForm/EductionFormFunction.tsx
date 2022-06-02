@@ -28,7 +28,8 @@ interface EductionFormInput {
 }
 
 interface EductionFormFunctionOptions {
-  onSaved: (education: Education) => void;
+  editId: string;
+  onSaved: (education: Education, editId: string) => void;
 }
 
 function useEductionFormFunction(options?: EductionFormFunctionOptions) {
@@ -68,24 +69,27 @@ function useEductionFormFunction(options?: EductionFormFunctionOptions) {
   const handleSubmit = (params: EductionFormInput) => {
     form.reset();
     if (options?.onSaved) {
-      options?.onSaved({
-        id: uuid(),
-        major: params.major,
-        university: {
-          id: params.university?.value?.toString() || "",
-          name: params.university?.label?.toString() || "",
+      options?.onSaved(
+        {
+          id: uuid(),
+          major: params.major,
+          university: {
+            id: params.university?.value?.toString() || "",
+            name: params.university?.label?.toString() || "",
+          },
+          degree: {
+            id: params.degree?.value?.toString() || "",
+            name: params.degree?.label?.toString() || "",
+          },
+          grade: params.grade,
+          start_month: Number(params.start_month?.value),
+          start_year: Number(params.start_year?.value),
+          end_month: Number(params.end_month?.value),
+          end_year: Number(params.end_year?.value),
+          description: params.description,
         },
-        degree: {
-          id: params.degree?.value?.toString() || "",
-          name: params.degree?.label?.toString() || "",
-        },
-        grade: params.grade,
-        start_month: Number(params.start_month?.value),
-        start_year: Number(params.start_year?.value),
-        end_month: Number(params.end_month?.value),
-        end_year: Number(params.end_year?.value),
-        description: params.description,
-      });
+        options.editId
+      );
     }
   };
 

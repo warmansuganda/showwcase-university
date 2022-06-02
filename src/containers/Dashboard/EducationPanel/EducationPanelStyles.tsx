@@ -30,10 +30,17 @@ export const EducationTitle = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
   }
+`;
+
+export const EducationSubTitle = styled.div`
+  display: flex;
+  font-size: 0.875rem;
+  margin: 8px 0;
+  align-items: center;
 
   div:not(:first-child):before {
-    content: "•";
-    font-size: 10px;
+    content: "|";
+    font-size: 0.875rem;
     margin-left: 8px;
     margin-right: 8px;
   }
@@ -41,11 +48,9 @@ export const EducationTitle = styled.div`
 
 export const EducationPeriod = styled.div`
   display: flex;
-  font-size: 0.875rem;
-  margin: 8px 0;
 
   div:not(:first-child):before {
-    content: "•";
+    content: "-";
     font-size: 10px;
     margin-left: 8px;
     margin-right: 8px;

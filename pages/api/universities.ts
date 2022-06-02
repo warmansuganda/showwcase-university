@@ -10,7 +10,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(req.query);
   try {
     const response = await fetch(
       `http://universities.hipolabs.com/search?${qs.stringify(req.query || {})}`

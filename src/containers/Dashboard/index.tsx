@@ -16,12 +16,22 @@ import useDashboardFunction from "./DashboardFunction";
 function Dashboard() {
   const { t } = useTranslation();
 
-  const { loading, name, data, handleSaved, formModal } =
-    useDashboardFunction();
+  const {
+    loading,
+    name,
+    data,
+    formModal,
+    dataEdit,
+    handleSaved,
+    handleDelete,
+    handleAdd,
+    handleEdit,
+    handleCloseForm,
+  } = useDashboardFunction();
 
   const renderPanel = () =>
     data.length ? (
-      <EducationPanel data={data} onEdit={() => null} onDelete={() => null} />
+      <EducationPanel data={data} onEdit={handleEdit} onDelete={handleDelete} />
     ) : (
       <Flex justifyContent="center" alignItems="center">
         <Empty>
@@ -29,11 +39,7 @@ function Dashboard() {
             <Text.H3>{t("No Data Found")}</Text.H3>
             <Text>
               {t("Not sure where to start?")}{" "}
-              <Text
-                variant="primary"
-                pointer
-                onClick={() => formModal.setShowForm(true)}
-              >
+              <Text variant="primary" pointer onClick={handleAdd}>
                 Create new education
               </Text>
             </Text>
@@ -50,10 +56,7 @@ function Dashboard() {
         })}
         rightAccessory={
           <ButtonAddWrapper>
-            <Button
-              variant="primary"
-              onClick={() => formModal.setShowForm(true)}
-            >
+            <Button variant="primary" onClick={handleAdd}>
               {t("Add new education")}
             </Button>
           </ButtonAddWrapper>
@@ -63,7 +66,8 @@ function Dashboard() {
       </PanelLayout>
       <EductionForm
         showForm={formModal.showForm}
-        onClose={() => formModal.setShowForm(false)}
+        defaultValue={dataEdit}
+        onClose={handleCloseForm}
         onSaved={handleSaved}
       />
     </>

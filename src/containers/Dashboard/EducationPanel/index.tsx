@@ -11,6 +11,7 @@ import {
   Panel,
   EducationList,
   EducationTitle,
+  EducationSubTitle,
   EducationPeriod,
   EducationDescription,
   EducationAction,
@@ -18,8 +19,8 @@ import {
 
 interface EducationPanelProps {
   data: Education[];
-  onEdit: () => void;
-  onDelete: () => void;
+  onEdit: (education: Education) => void;
+  onDelete: (education: Education) => void;
 }
 
 function EducationPanel({ data, onEdit, onDelete }: EducationPanelProps) {
@@ -42,31 +43,33 @@ function EducationPanel({ data, onEdit, onDelete }: EducationPanelProps) {
             footer={
               <EducationAction>
                 <div />
-                <Button variant="light" onClick={() => onEdit()}>
+                <Button variant="light" onClick={() => onEdit(item)}>
                   {t("Edit")}
                 </Button>
-                <Button variant="danger" onClick={() => onDelete()}>
+                <Button variant="danger" onClick={() => onDelete(item)}>
                   {t("Delete")}
                 </Button>
               </EducationAction>
             }
           >
             <EducationTitle>
-              <div>{item.major}</div>
-              <div>{item.university.name}</div>
+              <div>{`${item.degree.name} ${item.major} @ ${item.university.name}`}</div>
             </EducationTitle>
-            <EducationPeriod>
-              <div>
-                {`${moment(item.start_month, "M").format("MMM")} ${
-                  item.start_year
-                }`}
-              </div>
-              <div>
-                {`${moment(item.end_month, "M").format("MMM")} ${
-                  item.end_year
-                }`}
-              </div>
-            </EducationPeriod>
+            <EducationSubTitle>
+              <div>{`Grade : ${item.grade || "-"}`}</div>
+              <EducationPeriod>
+                <div>
+                  {`${moment(item.start_month, "M").format("MMM")} ${
+                    item.start_year
+                  }`}
+                </div>
+                <div>
+                  {`${moment(item.end_month, "M").format("MMM")} ${
+                    item.end_year
+                  }`}
+                </div>
+              </EducationPeriod>
+            </EducationSubTitle>
             <EducationDescription>
               {item.description || "-"}
             </EducationDescription>

@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Controller } from "react-hook-form";
+import moment from "moment";
 
 import Button from "src/components/Button";
 import Modal from "src/components/Modal";
@@ -16,17 +18,24 @@ import useEductionFormFunction from "./EductionFormFunction";
 
 interface EductionFormProps {
   showForm: boolean;
+  defaultValue: Education;
   onClose: () => void;
-  onSaved: (education: Education) => void;
+  onSaved: (education: Education, editId: string) => void;
 }
 
-function EductionForm({ showForm, onClose, onSaved }: EductionFormProps) {
+function EductionForm({
+  showForm,
+  defaultValue,
+  onClose,
+  onSaved,
+}: EductionFormProps) {
   const { t } = useTranslation();
   const {
     form: {
       register,
       formState: { errors },
       control,
+      setValue,
     },
     onSubmit,
     universities,
@@ -35,7 +44,70 @@ function EductionForm({ showForm, onClose, onSaved }: EductionFormProps) {
     degrees,
   } = useEductionFormFunction({
     onSaved,
+    editId: defaultValue.id,
   });
+
+  useEffect(() => {
+    if (showForm) {
+      setValue("major", defaultValue.major);
+      setValue(
+        "university",
+        defaultValue.university
+          ? {
+              value: defaultValue.university.id,
+              label: defaultValue.university.name,
+            }
+          : undefined
+      );
+      setValue(
+        "degree",
+        defaultValue.degree
+          ? {
+              value: defaultValue.degree.id,
+              label: defaultValue.degree.name,
+            }
+          : undefined
+      );
+      setValue("grade", defaultValue.grade);
+      setValue(
+        "start_month",
+        defaultValue.degree
+          ? {
+              value: defaultValue.start_month,
+              label: moment(defaultValue.start_month, "M").format("MMMM"),
+            }
+          : undefined
+      );
+      setValue(
+        "start_year",
+        defaultValue.degree
+          ? {
+              value: defaultValue.start_year,
+              label: defaultValue.start_year,
+            }
+          : undefined
+      );
+      setValue(
+        "end_month",
+        defaultValue.degree
+          ? {
+              value: defaultValue.end_month,
+              label: moment(defaultValue.end_month, "M").format("MMMM"),
+            }
+          : undefined
+      );
+      setValue(
+        "end_year",
+        defaultValue.degree
+          ? {
+              value: defaultValue.end_year,
+              label: defaultValue.end_year,
+            }
+          : undefined
+      );
+      setValue("description", defaultValue.description);
+    }
+  }, [defaultValue, showForm]);
 
   return (
     <Modal
