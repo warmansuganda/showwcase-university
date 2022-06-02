@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "school_name": "Harvard University",
+    "university": "Harvard University",
     "degree": "Master",
     "major": "Information Technology",
     "start": {
@@ -17,7 +17,7 @@
   },
   {
     "id": 2,
-    "school_name": "Indonesian Computer University Indonesian Computer University Indonesian Computer University",
+    "university": "Indonesian Computer University Indonesian Computer University Indonesian Computer University",
     "degree": "Bahcelor",
     "major": "Information Technology",
     "start": {

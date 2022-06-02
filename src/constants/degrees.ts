@@ -1,18 +1,18 @@
 export default [
   {
-    id: 1,
-    name: "Associate",
+    value: 1,
+    label: "Associate",
   },
   {
-    id: 2,
-    name: "Bachelor",
+    value: 2,
+    label: "Bachelor",
   },
   {
-    id: 3,
-    name: "Master",
+    value: 3,
+    label: "Master",
   },
   {
-    id: 3,
-    name: "Doctorate",
+    value: 3,
+    label: "Doctorate",
   },
 ];

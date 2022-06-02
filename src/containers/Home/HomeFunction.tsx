@@ -25,7 +25,7 @@ function useHomeFunction() {
 
   const handleSubmit = (params: FormInput) => {
     setCookies("name", params.name);
-
+    localStorage.removeItem("educations");
     router.push(DASHBOARD);
   };
 

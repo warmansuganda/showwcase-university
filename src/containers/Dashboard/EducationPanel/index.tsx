@@ -5,6 +5,8 @@ import Card from "src/components/Card";
 import Button from "src/components/Button";
 import Navigation from "src/components/Navigation";
 
+import { Education } from "src/services/education";
+
 import {
   Panel,
   EducationList,
@@ -15,7 +17,7 @@ import {
 } from "./EducationPanelStyles";
 
 interface EducationPanelProps {
-  data: any[];
+  data: Education[];
   onEdit: () => void;
   onDelete: () => void;
 }
@@ -29,7 +31,7 @@ function EducationPanel({ data, onEdit, onDelete }: EducationPanelProps) {
         title={t("Showwcase")}
         data={data.map((item) => ({
           id: item.id,
-          label: item.school_name,
+          label: item.university.name,
           url: `#edu-${item.id}`,
         }))}
       />
@@ -51,21 +53,23 @@ function EducationPanel({ data, onEdit, onDelete }: EducationPanelProps) {
           >
             <EducationTitle>
               <div>{item.major}</div>
-              <div>{item.school_name}</div>
+              <div>{item.university.name}</div>
             </EducationTitle>
             <EducationPeriod>
               <div>
-                {`${moment(item.start.month, "M").format("MMM")} ${
-                  item.start.year
+                {`${moment(item.start_month, "M").format("MMM")} ${
+                  item.start_year
                 }`}
               </div>
               <div>
-                {`${moment(item.end.month, "M").format("MMM")} ${
-                  item.end.year
+                {`${moment(item.end_month, "M").format("MMM")} ${
+                  item.end_year
                 }`}
               </div>
             </EducationPeriod>
-            <EducationDescription>{item.description}</EducationDescription>
+            <EducationDescription>
+              {item.description || "-"}
+            </EducationDescription>
           </Card>
         ))}
       </EducationList>
