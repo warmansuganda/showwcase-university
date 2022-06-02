@@ -24,3 +24,7 @@ export const BrandText = styled.div`
 export const BrandDivider = styled.svg`
   color: ${({ theme }) => theme.colors.light};
 `;
+
+export const Logo = styled.a`
+  cursor: pointer;
+`;

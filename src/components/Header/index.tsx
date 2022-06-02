@@ -1,8 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import Container from "src/components/Container";
 import Flex from "src/components/Flex";
 
-import { Wrapper, BrandText, BrandDivider } from "./HeaderStyles";
+import { HOME } from "src/constants/paths";
+
+import { Wrapper, BrandText, BrandDivider, Logo } from "./HeaderStyles";
 
 function Header() {
   return (
@@ -10,7 +13,11 @@ function Header() {
       <Container>
         <Flex justifyContent="space-between">
           <Flex alignItems="center">
-            <Image src="/logo.svg" width={32} height={32} />
+            <Link href={HOME}>
+              <Logo>
+                <Image src="/logo.svg" width={32} height={32} />
+              </Logo>
+            </Link>
             <BrandDivider
               data-testid="geist-icon"
               fill="none"

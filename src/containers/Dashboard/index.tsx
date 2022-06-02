@@ -31,6 +31,48 @@ function Dashboard() {
 
   const { name } = useDashboardFunction();
 
+  const renderPanel = () => (
+    <Panel>
+      <Navigation />
+      <EducationList>
+        {data?.map((item, key) => (
+          <Card
+            key={key}
+            footer={
+              <EducationAction>
+                <div />
+                <Button variant="light" onClick={() => setShowForm(true)}>
+                  {t("Edit")}
+                </Button>
+                <Button variant="danger" onClick={() => setShowForm(true)}>
+                  {t("Delete")}
+                </Button>
+              </EducationAction>
+            }
+          >
+            <EducationTitle>
+              <div>{item.major}</div>
+              <div>{item.school_name}</div>
+            </EducationTitle>
+            <EducationPeriod>
+              <div>
+                {`${moment(item.start.month, "M").format("MMM")} ${
+                  item.start.year
+                }`}
+              </div>
+              <div>
+                {`${moment(item.end.month, "M").format("MMM")} ${
+                  item.end.year
+                }`}
+              </div>
+            </EducationPeriod>
+            <EducationDescription>{item.description}</EducationDescription>
+          </Card>
+        ))}
+      </EducationList>
+    </Panel>
+  );
+
   return (
     <>
       <PanelLayout
@@ -45,45 +87,7 @@ function Dashboard() {
           </ButtonAddWrapper>
         }
       >
-        <Panel>
-          <Navigation />
-          <EducationList>
-            {data?.map((item, key) => (
-              <Card
-                key={key}
-                footer={
-                  <EducationAction>
-                    <div />
-                    <Button variant="light" onClick={() => setShowForm(true)}>
-                      {t("Edit")}
-                    </Button>
-                    <Button variant="danger" onClick={() => setShowForm(true)}>
-                      {t("Delete")}
-                    </Button>
-                  </EducationAction>
-                }
-              >
-                <EducationTitle>
-                  <div>{item.major}</div>
-                  <div>{item.school_name}</div>
-                </EducationTitle>
-                <EducationPeriod>
-                  <div>
-                    {`${moment(item.start.month, "M").format("MMM")} ${
-                      item.start.year
-                    }`}
-                  </div>
-                  <div>
-                    {`${moment(item.end.month, "M").format("MMM")} ${
-                      item.end.year
-                    }`}
-                  </div>
-                </EducationPeriod>
-                <EducationDescription>{item.description}</EducationDescription>
-              </Card>
-            ))}
-          </EducationList>
-        </Panel>
+        {renderPanel()}
         {/* asdf
         <Flex>
           <InputSearcWrapper>
