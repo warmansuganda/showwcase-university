@@ -75,4 +75,9 @@ export default createGlobalStyle`
     /* Microsoft Edge */
     color: #839198;
   }
+
+  .react-select__control {
+    height: 42px;
+    border-color: #eaeaea !important;
+  }
 `;
