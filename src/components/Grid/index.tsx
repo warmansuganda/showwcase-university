@@ -35,19 +35,19 @@ const Grid = styled.div<GridProps>`
   ${gapVariant};
   ${(props) =>
     props.direction === "row"
-      ? `grid-template-row: repeat(${props.repeat}, 1fr)`
+      ? `grid-template-columns: repeat(${props.repeat}, 1fr)`
       : `grid-template-columns: repeat(${props.repeat}, 1fr)`};
   @media only screen and (max-width: 576px) {
     ${(props) =>
       props.direction === "row"
-        ? `grid-template-row: 1fr`
+        ? `grid-template-columns: 1fr`
         : `grid-template-columns: 1fr`};
   }
 `;
 
 Grid.defaultProps = {
   gap: "md",
-  direction: "row",
+  direction: "column",
   repeat: 1,
 };
 
