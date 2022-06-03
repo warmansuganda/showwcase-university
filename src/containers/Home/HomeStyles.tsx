@@ -17,6 +17,8 @@ export const DecriptionWrapper = styled.div`
   margin-top: 100px;
   @media only screen and (max-width: 576px) {
     margin-top: 0px;
+    width: 100%;
+    text-align: center;
   }
 `;
 
