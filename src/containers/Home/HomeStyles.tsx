@@ -10,6 +10,8 @@ export const HeroWrapper = styled.div`
   @media only screen and (max-width: 576px) {
     flex-direction: column-reverse;
     gap: 0px;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
