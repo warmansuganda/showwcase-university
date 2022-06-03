@@ -98,8 +98,9 @@ function useEductionFormFunction(options?: EductionFormFunctionOptions) {
   const onSubmit = form.handleSubmit(handleSubmit);
 
   const onSearchUniversity = (keyword: string) => {
-    setSearchUniversity({ name: keyword || "middle" });
-    queryClient.invalidateQueries("universities");
+    const search = { name: keyword || "middle" };
+    setSearchUniversity(search);
+    queryClient.invalidateQueries(["universities", search]);
   };
 
   return {
