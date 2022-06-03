@@ -116,7 +116,11 @@ function EductionForm({
       modalIsOpen={showForm}
       closeModal={onClose}
       shouldCloseOnOverlayClick={false}
-      title={t("Add Eduction")}
+      title={
+        defaultValue.id
+          ? t("Edit {{title}}", { title: t("Eduction") })
+          : t("Add {{title}}", { title: t("Eduction") })
+      }
     >
       <FormWrapper onSubmit={onSubmit}>
         <InputWrapper>
