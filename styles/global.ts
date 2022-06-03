@@ -80,4 +80,9 @@ export default createGlobalStyle`
     height: 42px;
     border-color: #eaeaea !important;
   }
+
+  .react-select__option, .react-select__menu-notice, .react-select__placeholder, .react-select__single-value {
+    font-size: 0.875rem/* 14px */ !important;
+    line-height: 1.25rem/* 20px */ !important;
+  }
 `;
