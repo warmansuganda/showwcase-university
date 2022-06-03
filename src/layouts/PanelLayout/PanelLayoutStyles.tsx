@@ -20,8 +20,16 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   gap: 2px;
   height: 136px;
+  @media only screen and (max-width: 576px) {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 12px;
+  }
 `;
 
 export const TitlePanel = styled.div`
   flex: 1;
+  @media only screen and (max-width: 576px) {
+    text-align: center;
+  }
 `;

@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const FormWrapper = styled.form`
   width: 600px;
+  @media only screen and (max-width: 576px) {
+    width: calc(100vw - 80px);
+  }
 `;
 
 export const InputWrapper = styled.div`

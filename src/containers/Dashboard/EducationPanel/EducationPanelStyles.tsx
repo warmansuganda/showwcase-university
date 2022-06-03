@@ -6,6 +6,10 @@ export const Panel = styled.div`
   gap: 24px;
   grid-template-columns: 220px 1fr;
   margin-top: 47px;
+  @media only screen and (max-width: 576px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 export const Content = styled.div`
@@ -65,4 +69,10 @@ export const EducationAction = styled.div`
   display: grid;
   grid-template-columns: 1fr 100px 100px;
   gap: 12px;
+  @media only screen and (max-width: 576px) {
+    & > :first-child {
+      display: none;
+    }
+    grid-template-columns: 1fr 1fr;
+  }
 `;

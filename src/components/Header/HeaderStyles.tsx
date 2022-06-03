@@ -13,6 +13,7 @@ export const Wrapper = styled.header`
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.5);
+  z-index: 5;
 `;
 
 export const BrandText = styled.div`

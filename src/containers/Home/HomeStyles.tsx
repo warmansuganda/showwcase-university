@@ -6,10 +6,18 @@ export const HeroWrapper = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 50px;
+  padding-bottom: 24px;
+  @media only screen and (max-width: 576px) {
+    flex-direction: column-reverse;
+    gap: 0px;
+  }
 `;
 
 export const DecriptionWrapper = styled.div`
   margin-top: 100px;
+  @media only screen and (max-width: 576px) {
+    margin-top: 0px;
+  }
 `;
 
 export const GreetingWrapper = styled.div`
@@ -26,6 +34,10 @@ export const IlustrationWrapper = styled.div`
   position: relative;
   height: 550px;
   width: 550px;
+  @media only screen and (max-width: 576px) {
+    height: 400px;
+    width: 400px;
+  }
 `;
 
 export const InputWrapper = styled.div`
@@ -37,4 +49,7 @@ export const InputWrapper = styled.div`
 
 export const ButtonEnterWrapper = styled.div`
   width: 160px;
+  @media only screen and (max-width: 576px) {
+    width: auto;
+  }
 `;
