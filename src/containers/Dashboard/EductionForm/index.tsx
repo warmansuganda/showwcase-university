@@ -38,10 +38,12 @@ function EductionForm({
       setValue,
     },
     onSubmit,
+    onSearchUniversity,
     universities,
     months,
     years,
     degrees,
+    universityQuery,
   } = useEductionFormFunction({
     onSaved,
     editId: defaultValue.id,
@@ -143,7 +145,10 @@ function EductionForm({
                     onChange={field.onChange}
                     onBlur={field.onBlur}
                     options={universities}
+                    onSearch={onSearchUniversity}
+                    loading={universityQuery.isLoading}
                     searchable
+                    controlled
                   />
                 )}
               />

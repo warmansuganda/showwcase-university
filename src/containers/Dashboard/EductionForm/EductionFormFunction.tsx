@@ -1,10 +1,10 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 import type { SingleValueOption } from "src/components/Select";
 
@@ -34,18 +34,20 @@ interface EductionFormFunctionOptions {
 
 function useEductionFormFunction(options?: EductionFormFunctionOptions) {
   const { t } = useTranslation();
-  const { data: universitysData } = useQuery("universities", () =>
-    getUniversities({ name: "middle" })
+  const queryClient = useQueryClient();
+  const [searchUniversity, setSearchUniversity] = useState({ name: "middle" });
+  const universityQuery = useQuery(["universities", searchUniversity], () =>
+    getUniversities(searchUniversity)
   );
 
   const universities = useMemo(
     () =>
-      universitysData?.map((item: University) => ({
+      universityQuery.data?.map((item: University) => ({
         value: slugify(item.name),
         label: item.name,
         origin: item,
       })),
-    [universitysData]
+    [universityQuery.data]
   );
 
   const months = generateMonths();
@@ -95,7 +97,21 @@ function useEductionFormFunction(options?: EductionFormFunctionOptions) {
 
   const onSubmit = form.handleSubmit(handleSubmit);
 
-  return { form, onSubmit, universities, degrees, months, years };
+  const onSearchUniversity = (keyword: string) => {
+    setSearchUniversity({ name: keyword || "middle" });
+    queryClient.invalidateQueries("universities");
+  };
+
+  return {
+    form,
+    onSubmit,
+    universities,
+    degrees,
+    months,
+    years,
+    onSearchUniversity,
+    universityQuery,
+  };
 }
 
 export default useEductionFormFunction;
