@@ -151,6 +151,7 @@ function EductionForm({
                     options={universities}
                     onSearch={onSearchUniversity}
                     loading={universityQuery.isLoading}
+                    variant={errors.university ? "danger" : "light"}
                     searchable
                     controlled
                   />
