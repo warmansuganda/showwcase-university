@@ -85,4 +85,8 @@ export default createGlobalStyle`
     font-size: 0.875rem/* 14px */ !important;
     line-height: 1.25rem/* 20px */ !important;
   }
+
+  .react-select__menu-portal {
+    z-index: 20 !important;
+  }
 `;

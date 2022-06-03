@@ -39,8 +39,8 @@ export const IlustrationWrapper = styled.div`
   height: 550px;
   width: 550px;
   @media only screen and (max-width: 576px) {
-    height: 400px;
-    width: 400px;
+    height: 320px;
+    width: 320px;
   }
 `;
 

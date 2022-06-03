@@ -37,6 +37,7 @@ function Modal({
       transform: "translate(-50%, -50%)",
       padding: 0,
     },
+    overlay: { zIndex: 10 },
   };
   return (
     <ReactModal
