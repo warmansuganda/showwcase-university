@@ -44,7 +44,7 @@ export interface SelectProps<
   options: OptionsOrGroups<Option, Group>;
   accessoryLeft?: ReactNode;
   size?: SizeVariant;
-  status?: ColorVariant;
+  variant?: ColorVariant;
   value?: PropsValue<Option>;
   defaultValue?: PropsValue<Option>;
   disabled?: boolean;
@@ -72,8 +72,8 @@ const Select = forwardRef(
   (
     {
       id,
-      // size = "basic",
-      // status = "basic",
+      size = "md",
+      variant = "light",
       searchable = false,
       clearable = false,
       disabled = false,
@@ -131,7 +131,7 @@ const Select = forwardRef(
       menuPortalTarget: document?.body,
       menuPlacement: "auto" as MenuPlacement,
       classNamePrefix: "react-select",
-      // className: classnames(sizeClass, statusClass),
+      className: `react-select--${size} react-select--${variant}`,
       isSearchable: searchable,
       isClearable: clearable,
       isDisabled: disabled,
